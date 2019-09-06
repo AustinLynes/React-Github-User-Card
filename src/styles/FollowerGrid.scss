@@ -1,0 +1,12 @@
+.follower-grid{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding:1rem;
+}
+.follower-card{
+    margin:0 1rem;
+    .follower-profile-thumb{
+        width:128px;
+    }
+}

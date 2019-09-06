@@ -1,0 +1,27 @@
+.user-card {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width:fit-content;
+    max-width: 30%;
+    width:30%;
+    .user-avatar {
+        padding:10px;
+        img {
+          max-width: 460px;
+        }
+    }
+    .user-infos{
+        text-align: center;
+        width:100%;
+        padding:10px;
+    }
+    .followers{
+        width:100%;
+        text-align: center;
+    }
+    .user-git{
+        width:100%;
+        text-align: center;
+    }
+}

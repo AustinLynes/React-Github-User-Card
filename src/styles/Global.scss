@@ -5,6 +5,10 @@ html {
   *:focus {
     outline: none;
   }
-  p,h1,a{
-    color:grey;
+  *{
+      box-sizing: border-box;
+  }
+  p,h1,a, input{
+    text-decoration: none;
+    color:$txt-color;
   }
