@@ -1,0 +1,10 @@
+html {
+    background: lighten($nav-color, 5%)
+  }
+  
+  *:focus {
+    outline: none;
+  }
+  p,h1,a{
+    color:grey;
+  }
