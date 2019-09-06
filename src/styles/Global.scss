@@ -1,5 +1,5 @@
 html {
-    background: lighten($nav-color, 5%)
+    background: $main
   }
   
   *:focus {
@@ -12,3 +12,4 @@ html {
     text-decoration: none;
     color:$txt-color;
   }
+
