@@ -1,3 +1,5 @@
+$desktop: 'max-width:1200px';
+
 html {
     background: $main
   }
@@ -7,9 +9,40 @@ html {
   }
   *{
       box-sizing: border-box;
+      &::-webkit-scrollbar {
+        width: 0.5em;
+        height: 0.5em;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: rgba(255, 255, 255, .1);
+        border-radius: 3px;
+    }
   }
-  p,h1,a, input{
+  p,h1,h2,h3,h4,h5,h6,li,a, input{
     text-decoration: none;
     color:$txt-color;
   }
 
+  @keyframes SlideFromTop {
+    0% {
+      color:transparent;
+      transform: translateY(-50%);
+    }
+    100% {
+        color:$txt-color;
+        transform: translateY(0);
+    }
+}
+@keyframes SlideFromLeft {
+  0% {
+    z-index: -1;
+    color:transparent;
+    width:0;
+  }
+  100% {
+    z-index: 2;
+      color:$txt-color;
+      width:100%;
+  }
+}

@@ -1,7 +1,8 @@
 import React from 'react';
-import FollowerCard from './FollowerCard';
 import axios from 'axios';
-
+import FollowerGrid from './FollowerGrid'
+import { Route, NavLink } from 'react-router-dom';
+import ReposGrid from './ReposGrid';
 class UserCard extends React.Component {
     constructor(props) {
         super(props)
@@ -9,13 +10,13 @@ class UserCard extends React.Component {
     componentDidMount() {
         //#region setState of UserCard
         axios
-            .get(`https://api.github.com/users/${window.localStorage.searched_name}?${window.localStorage.token}`)
+            .get(`https://api.github.com/users/${window.localStorage.searched_name}`)
             .then(res => this.props.updateState(res))
             .catch(err => console.log('error fetching data.. try looking at the url: ', err))
         //#endregion
         //#region setState of current Users Followers
         axios
-            .get(`https://api.github.com/users/${window.localStorage.searched_name}?${window.localStorage.token}/followers`)
+            .get(`https://api.github.com/users/${window.localStorage.searched_name}/followers`)
             .then(res => {
                 this.setState({
                     followers: res.map(f => { return { login: f.login, avatar_url: f.avatar_url } })
@@ -43,20 +44,23 @@ class UserCard extends React.Component {
                     </div>
                     <a className='user-git' href={this.props.state.repos}>Go To my Profile</a>
                 </div>
+                <div className='right'>
 
-                <div className='follower-grid'>
-                    {
-                        this.props.state.followers.map(follower => {
-                            return (
-                                <FollowerCard
-                                    key={Math.random(500)}
-                                    follower={follower}
-                                    handleRedirect={this.props.handleRedirect}
-                                    name={follower.login}
-                                />
-                            )
-                        })
-                    }
+                    <div className='nav-links'>
+                        <NavLink to={`/${window.localStorage.searched_name}/followers`} activeClassName='ACTIVE' >
+                            <p className='txt'>followers</p>
+                        </NavLink>
+                        <NavLink to={`/${window.localStorage.searched_name}/repos`} activeClassName='ACTIVE' >
+                            <p className='txt'>repos</p>
+                        </NavLink>
+                        <NavLink to={`/${window.localStorage.searched_name}/activity`} activeClassName='ACTIVE'>
+                            <p className='txt'>activity graph</p>
+                        </NavLink>
+                    </div>
+                    <Route exact path={`/${window.localStorage.searched_name}/followers`}
+                    render={() => <FollowerGrid state={this.props.state}  handleRedirect={this.props.handleRedirect} />} />
+                    <Route exact path={`/${window.localStorage.searched_name}/repos`}
+                        render={() => <ReposGrid state={this.props.state} />} />
                 </div>
             </div>
         )

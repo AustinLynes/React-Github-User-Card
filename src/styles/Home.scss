@@ -1,0 +1,39 @@
+.home {
+    display: flex;
+    height: 90vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding:1rem;
+    .summary {
+        box-shadow: inset 2px 3px 5px rgba(0,0,0,.2);
+        border-radius: 10px;
+        background: $dark;
+
+        div {
+            display: flex;
+            flex-wrap: wrap;
+
+            p {
+                box-shadow: 2px 3px 5px rgba(0,0,0,.2);
+                border-radius: 10px;
+                background:$main;
+                font-size: 1.2rem;
+                width: 45%;
+                padding: 10px;
+                margin:10px auto;
+                border-left:2px solid $dark;
+                border-right: 2px solid $dark;
+            }
+            #_{
+                width:60%;
+            }
+        }
+        
+        h3 {
+            padding: 1rem;
+        }
+    }
+
+}

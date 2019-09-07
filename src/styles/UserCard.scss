@@ -2,26 +2,68 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    width:fit-content;
+    width: fit-content;
     max-width: 30%;
-    width:30%;
+    width: 30%;
+    padding: 10px;
+
     .user-avatar {
-        padding:10px;
         img {
-          max-width: 460px;
+            max-width: 460px;
         }
     }
-    .user-infos{
+
+    .user-infos {
         text-align: center;
-        width:100%;
-        padding:10px;
+        width: 100%;
+        padding: 10px;
     }
-    .followers{
-        width:100%;
+
+    .followers {
+        width: 100%;
         text-align: center;
     }
-    .user-git{
-        width:100%;
+
+    .user-git {
+        width: 100%;
         text-align: center;
+    }
+
+
+    @media (max-width:1500px) {
+        .user-avatar {
+            img {
+                max-width: 290px;
+            }
+        }
+    }
+
+    border-bottom: 1px solid $light;
+
+}
+.right{
+    width: 100%;
+    .nav-links {
+        display: flex;
+        .txt {
+        animation: 1s ease-out 0s 1 SlideFromTop;
+        padding:0 1rem;
+    }
+    .ACTIVE{
+        background:$dark;
+    }
+}
+}
+
+
+
+
+@media (max-height:700px) {
+    .user-card {
+        padding: 2rem 0;
+        height: 85vh;
+        overflow-y: auto;
+
+
     }
 }

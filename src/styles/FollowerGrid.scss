@@ -1,4 +1,5 @@
 .follower-grid {
+    animation: 1s ease-out 0s 1 SlideFromLeft;
     max-height: 90vh;
     height: 90vh;
     width: 100%;
@@ -21,12 +22,24 @@
 }
 
 .follower-card {
+   
+    border-radius: 10px;
     padding: 1rem;
     height: fit-content;
     background: $light;
-    margin: 0 1rem;
+    margin: 1rem;
+    box-shadow: 2px 3px 5px rgba(0,0,0,.2);
+    img{
+        border-radius: 10px;
+    }
 
     .follower-profile-thumb {
         width: 128px;
+    }
+}
+
+@media(max-height:700px){
+    .follower-grid{
+        height:77vh;
     }
 }

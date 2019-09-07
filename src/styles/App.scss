@@ -1,10 +1,13 @@
 @import './Colors.scss';
 @import './Global.scss';
 @import './Navigation.scss';
+@import './Home.scss';
 @import './UserCard.scss';
 @import './FollowerGrid.scss';
+@import './Repos.scss';
 
 .body{
   display: flex;
   flex-direction: row;
 }
+
