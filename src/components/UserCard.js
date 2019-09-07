@@ -3,6 +3,8 @@ import axios from 'axios';
 import FollowerGrid from './FollowerGrid'
 import { Route, NavLink } from 'react-router-dom';
 import ReposGrid from './ReposGrid';
+import GithubCalander from 'github-calendar';
+
 class UserCard extends React.Component {
     constructor(props) {
         super(props)
@@ -58,15 +60,18 @@ class UserCard extends React.Component {
                         </NavLink>
                     </div>
                     <Route exact path={`/${window.localStorage.searched_name}/followers`}
-                    render={() => <FollowerGrid state={this.props.state}  handleRedirect={this.props.handleRedirect} />} />
+                        render={() => <FollowerGrid state={this.props.state} handleRedirect={this.props.handleRedirect} />} />
                     <Route exact path={`/${window.localStorage.searched_name}/repos`}
                         render={() => <ReposGrid state={this.props.state} />} />
+                    
                 </div>
             </div>
         )
     }
 
 }
-
+GithubCalander('.calendar', window.localStorage.searched_name, {
+    responsive: true
+})
 
 export default UserCard;

@@ -17,7 +17,7 @@ class App extends React.Component {
     super(props);
     //#region state
     this.state = {
-      searched_name: window.localStorage.searched_name,
+      searched_name: '',
       name: '',
       location: '',
       bio: '',
@@ -82,6 +82,29 @@ class App extends React.Component {
         })
         .catch(err => console.log(err))
       , 102)
+      setTimeout(
+        axios
+          .get(`https://api.github.com/users/${window.localStorage.searched_name}/repos`)
+          .then(res => {
+            this.setState({
+              repos: res.data.map(r => {
+                return {
+                  name: r.name,
+                  private: r.private,
+                  description: r.description,
+                  watchers_count: r.watchers_count,
+                  language: r.language,
+                  forks_count: r.forks_count,         
+                  license: r.license,
+                  forks: r.forks,
+                  size: r.size,
+                  default_branch: r.default_branch
+                }
+              })
+            })
+          })
+          .catch(err => console.log(err))
+        , 104)
   }
   search = event => {
     event.preventDefault();
