@@ -1,0 +1,36 @@
+.repo-card{
+    display: flex;
+    flex-direction: column;
+    width:100%;
+    padding:10px;
+    margin:1rem;
+    border-radius: 10px;
+    background: $light;
+    box-shadow: 2px 4px 6px rgba(0,0,0,.3);
+    .header{
+        padding:10px;
+        background: $light;
+        display: flex;
+        width:100%;
+        justify-content: space-between;
+        p{
+            padding:10px;
+        }
+    }
+    .body{
+        display: flex;
+        flex-direction: column;
+        background:$dark;
+        p{
+            padding:10px;
+        }
+    }
+    .footer{
+        display: flex;
+        padding:10px;
+        background:$dark;
+        p{
+            padding:10px
+        }
+    }
+}
